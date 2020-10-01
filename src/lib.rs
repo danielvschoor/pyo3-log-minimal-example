@@ -20,13 +20,13 @@ pub(crate) struct WrappingPyStruct {
 impl WrappingPyStruct {
     #[new]
     fn new() -> Self {
-        info!("Logging from pymethods (new)");
+        info!("Logging from pymethods (new)"); // This logs
         WrappingPyStruct{
             wrapped_struct: WrappedStruct::new()
         }
     }
     pub fn run(&self){
-        info!("Logging from pymethods (run)");
+        info!("Logging from pymethods (run)"); // This logs
         self.wrapped_struct.run().join();
     }
 
@@ -40,14 +40,14 @@ pub struct WrappedStruct {
 
 impl WrappedStruct {
     pub fn new() -> Self {
-        info!("Logging from pure Rust (new)");
+        info!("Logging from pure Rust (new)"); // This logs
         Self {}
     }
 
     pub fn run(&self) -> JoinHandle<()> {
         std::thread::spawn(move || loop {
             sleep(Duration::new(5,0));
-            info!("Logging from pure Rust (run)");
+            info!("Logging from pure Rust (run)"); //This does not log
         })
     }
 }
