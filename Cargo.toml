@@ -1,0 +1,17 @@
+[package]
+name = "pyo3-min-example"
+version = "0.1.0"
+authors = ["danielvschoor <danielvanschoor1997@gmail.com>"]
+edition = "2018"
+
+[lib]
+name = "module"
+crate-type = ["cdylib"]
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+pyo3 = {version="0.12.1", features = ["extension-module"] }
+pyo3-log ="0.2.0"
+log = "0.4.11"
+
+
